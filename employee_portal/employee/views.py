@@ -82,3 +82,22 @@ def get_employee(request, pk):
 	}
 	
 	return render(request, 'employee/employee.html', context)
+
+def order_by(request, attr):
+
+
+	employees = Employee_model.objects.all().order_by(attr)
+	form = Employee_Form()
+
+	if request.method == 'POST':
+		form = Employee_Form(request.POST)
+		if form.is_valid():
+			form.save()
+		return redirect('/')
+
+	context = {
+		'employees' : employees,
+		'form' : form
+	}
+
+	return render(request, 'employee/employee_details.html', context)
