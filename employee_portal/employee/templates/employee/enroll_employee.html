@@ -1,7 +1,29 @@
-<h3>Enroll Employee</h3>
+<style>
+
+	.center-column{
+		width:600px;
+		margin: 20px auto;
+		padding:20px;
+		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+	}
+
+</style>
+
+<div class = "center-column">
 
 <form method="POST" action="/">
 	{% csrf_token %}
-	{{form}}
+
+	<p>Name: {{form.name}}</p>
+	<p>Location: {{form.location}}</p>
+	<p>Phone Number: {{form.phone_number}} </p>
+	<p>Email id: {{form.email_id}}</p>
+	<p>Joining date:{{form.joining_date}}</p>
+	<p>Last date: {{form.last_date}}</p>
+	
 	<input type="submit" name="add new employee details">
 </form>
+
+</div>

@@ -1,13 +1,31 @@
-<h3>Employee Data</h3>
+<style>
 
-<p>{{emp}}</p>
-<p>{{emp.id}}</p>
-<p>{{emp.location}}</p>
-<p>{{emp.phone_number}}</p>
-<p>{{emp.email_id}}</p>
-<p>{{emp.joining_date}}</p>
-<p>{{emp.last_date}}</p>
+	.center-column{
+		width:600px;
+		margin: 20px auto;
+		padding:20px;
+		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+	}
+
+</style>
+
+<div class = "center-column">
+<h2>Employee Data</h2>
+
+
+
+<p>Name: {{emp}}</p>
+<p>ID: {{emp.id}}</p>
+<p>Location: {{emp.location}}</p>
+<p>Phone Number: {{emp.phone_number}}</p>
+<p>Email id: {emp.email_id}}</p>
+<p>Joining date:{{emp.joining_date}}</p>
+<p>Last date: {{emp.last_date}}</p>
 
 
 <a href="{% url 'list' %}">Back</a>
+
+</div>
 
