@@ -1,5 +1,12 @@
 <h3>Employee Details</h3>
 
+<form method = "POST" action="/search_results">
+	{% csrf_token %}
+	<p>Search Employee: {{form.name}}
+	<input type="submit" name="Search Name">
+	</p>
+</form>
+
 <table border="3">
 
 	<tr>

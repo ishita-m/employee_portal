@@ -14,3 +14,9 @@ class Employee_Form(forms.ModelForm):
 	class Meta:
 		model = Employee_model
 		fields = '__all__'
+
+class Search_Form(forms.ModelForm):
+
+	class Meta:
+		model = Employee_model
+		fields = ['name']

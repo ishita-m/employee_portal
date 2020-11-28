@@ -101,3 +101,23 @@ def order_by(request, attr):
 	}
 
 	return render(request, 'employee/employee_details.html', context)
+
+def search_employee(request):
+
+	form = Search_Form()
+
+	if request.method == 'POST':
+		form = Search_Form(request.POST)
+		if form.is_valid():
+			query = form.cleaned_data['name']
+			queryset = Employee_model.objects.filter(name__icontains=query)
+		# return redirect('/')
+
+		context = {
+			'employees' : queryset,
+			'form' : form
+		}
+
+		return render(request, 'employee/employee_details.html', context)
+
+	return redirect('/')
