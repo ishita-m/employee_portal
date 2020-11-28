@@ -1,0 +1,10 @@
+<h3>Employee Details</h3>
+
+{% for emp in employees %}
+	<div>
+		<p>{{emp}}</p>
+		<hr/>
+	</div>
+{% endfor %}
+
+<a href="{% url 'enroll' %}">Enroll a new employee</a>
