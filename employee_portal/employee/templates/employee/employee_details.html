@@ -2,7 +2,10 @@
 
 {% for emp in employees %}
 	<div>
-		<p>{{emp}}</p>
+		<a href="{% url 'employee_data' emp.id %}">{{emp}}</a>
+		<a href="{% url 'update_emp' emp.id %}">edit</a>
+		<a href="{% url 'delete' emp.id %}">delete</a>
+		<!-- <p>{{emp}}</p> -->
 		<hr/>
 	</div>
 {% endfor %}
