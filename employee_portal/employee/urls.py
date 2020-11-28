@@ -7,4 +7,5 @@ urlpatterns = [
 	path('update_employee_details/<str:pk>/', views.update_employee_details, name = "update_emp"),
 	path('delete/<str:pk>/', views.delete_employee, name = "delete"),
 	path('employee_data/<str:pk>/', views.get_employee, name = "employee_data"),
+	path('order_by/<str:attr>/', views.order_by, name = "order_by"),
 ]  

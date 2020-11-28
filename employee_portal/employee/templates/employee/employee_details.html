@@ -1,13 +1,25 @@
 <h3>Employee Details</h3>
 
+<table border="3">
+
+	<tr>
+		<td><a href="{% url 'order_by' 'name' %}">Name</a></td>
+		<td><a href="{% url 'order_by' 'joining_date' %}">Joining Date</a></td>
+		<td><a href="{% url 'order_by' 'last_date' %}">Last Date</a></td>
+		<td>Edit</td>
+		<td>Delete</td>
+	</tr>
+
 {% for emp in employees %}
-	<div>
-		<a href="{% url 'employee_data' emp.id %}">{{emp}}</a>
-		<a href="{% url 'update_emp' emp.id %}">edit</a>
-		<a href="{% url 'delete' emp.id %}">delete</a>
-		<!-- <p>{{emp}}</p> -->
-		<hr/>
-	</div>
+	<tr>
+		<td><a href="{% url 'employee_data' emp.id %}">{{emp}}</a></td>
+		<td>{{emp.joining_date}}</a></td>
+		<td>{{emp.last_date}}</a></td>
+		<td><a href="{% url 'update_emp' emp.id %}">edit</a></td>
+		<td><a href="{% url 'delete' emp.id %}">delete</a></td>
+	</tr>
 {% endfor %}
+</table>
+
 
 <a href="{% url 'enroll' %}">Enroll a new employee</a>
