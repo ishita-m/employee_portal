@@ -9,6 +9,11 @@
 		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
 	}
 
+	.btn-danger{
+		background-color: #ffae19;
+		border-color: #e59400;
+	}
+
 </style>
 
 <div class = "center-column">
@@ -23,7 +28,7 @@
 	<p>Joining date:{{form.joining_date}}</p>
 	<p>Last date: {{form.last_date}}</p>
 	
-	<input type="submit" name="add new employee details">
+	<input class="btn-sm btn-info btn-danger"  type="submit" name="add new employee details">
 </form>
 
 </div>
