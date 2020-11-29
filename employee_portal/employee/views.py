@@ -5,6 +5,10 @@ from .models import *
 from .forms import * 
 
 def index(request):
+
+	return redirect('/employee-details')
+
+def employee_details(request):
 	
 	employees = Employee_model.objects.all().order_by('name')
 	form = Search_Form()
@@ -26,7 +30,7 @@ def enroll_employee(request):
 		form = Employee_Form(request.POST)
 		if form.is_valid():
 			form.save()
-		return redirect('/')
+			return redirect('/')
 
 	context = {
 		'employees' : employees,
