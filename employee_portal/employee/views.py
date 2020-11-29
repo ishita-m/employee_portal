@@ -5,15 +5,9 @@ from .models import *
 from .forms import * 
 
 def index(request):
-
+	
 	employees = Employee_model.objects.all().order_by('name')
-	form = Employee_Form()
-
-	if request.method == 'POST':
-		form = Employee_Form(request.POST)
-		if form.is_valid():
-			form.save()
-		return redirect('/')
+	form = Search_Form()
 
 	context = {
 		'employees' : employees,
