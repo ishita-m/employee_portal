@@ -116,6 +116,6 @@ def search_employee(request):
 			'form' : form
 		}
 
-		return render(request, 'employee/employee_details.html', context)
+		return render(request, 'employee/search_results.html', context)
 
 	return redirect('/')

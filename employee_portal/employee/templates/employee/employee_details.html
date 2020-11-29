@@ -45,35 +45,48 @@
 		border-color: #e59400;
 	}
 
+	.table{
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		width: auto;
+	}
+
+	.inner-table{
+		border: 3;
+		border-width: 1;
+	}
+
 </style>
 
 <div class="center-column">
 
 <form method = "POST" action="/search_results">
 	{% csrf_token %}
-	Search Employee: {{form.name}}
-	<input class="btn btn-info btn-danger" type="submit" name="Search Name">
-	
+	<b>Search Employee:</b> {{form.name}}
+	<input class="btn btn-info btn-danger" type="submit" name="Search Name">	
 </form>
+
+<h6><b>Employee details: </b></h6>
 
 <table border="3">
 
-	<tr>
+	<tr class="inner-table">
 		<td><a href="{% url 'order_by' 'name' %}"><b>Name</b></a></td>
 		<td><a href="{% url 'order_by' 'joining_date' %}"><b>Joining Date</b></a></td>
 		<td><a href="{% url 'order_by' 'last_date' %}"><b>Last Date</b></a></td>
 		<td><b>Edit</b></td>
 		<td><b>Delete</b></td>
+
 	</tr>
 
 {% for emp in employees %}
 	<tr>
-
 		<td><a href="{% url 'employee_data' emp.id %}">{{emp}}</a></td>
 		<td>{{emp.joining_date}}</a></td>
 		<td>{{emp.last_date}}</a></td>
-		<td><a class="btn-sm btn-info btn-danger" href="{% url 'update_emp' emp.id %}">edit</a></td>
-		<td><a class="btn-sm btn-info btn-danger" href="{% url 'delete' emp.id %}">delete</a></td>
+		<td><a class="btn-sm btn-info btn-danger" href="{% url 'update_emp' emp.id %}">Edit</a></td>
+		<td><a class="btn-sm btn-info btn-danger" href="{% url 'delete' emp.id %}">Delete</a></td>
 
 	</tr>
 {% endfor %}
