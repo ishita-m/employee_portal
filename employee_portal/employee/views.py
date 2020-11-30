@@ -31,8 +31,11 @@ def enroll_employee(request):
 		if form.is_valid():
 			form.save()
 			return redirect('/')
+		else:
+			context1 = { 'form' : form }
+			return render(request, 'employee/enroll_employee.html', context1)
 
-	context = {
+	context = {	
 		'employees' : employees,
 		'form' : form
 	}
