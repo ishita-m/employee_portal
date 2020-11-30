@@ -59,6 +59,14 @@
 
 <h3>Update Details</h3>
 
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <p> {{ error }} </p>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
 <form method="POST" action="">
 	{% csrf_token %}
 
@@ -66,7 +74,7 @@
 	<p>Location: {{form.location}}</p>
 	<p>Phone Number: {{form.phone_number}} </p>
 	<p>Email id: {{form.email_id}}</p>
-	<p>Joining date:{{form.joining_date}}</p>
+	<p>Joining date: {{form.joining_date}}</p>
 	<p>Last date: {{form.last_date}}</p>
 	
 	<input class="btn btn-info btn-danger" type="submit" name="update employee details">
